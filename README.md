@@ -15,7 +15,7 @@ The script processes the input log and produces a list of JSON objects in the fo
     "context_precision": 0.42
   }
 ]
-
+```
 ## ⚙️ Approach
 
 Each log entry contains:
@@ -48,7 +48,7 @@ Install the required Python package:
 
 ```bash
 pip install sentence-transformers
-
+```
 
 ## 🎯 Assumptions & Simplifications
 
