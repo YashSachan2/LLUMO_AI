@@ -1,4 +1,4 @@
-# 📊 RAGAs Metrics Integration (Basic)
+# 📊 RAG Pipeline Evaluation Framework
 
 ## 📘 Overview
 
@@ -41,6 +41,37 @@ These are used to compute the three metrics as follows:
 - `all-mpnet-base-v2`
 
 ---
+
+## 🚀 Features
+
+* **Automated Metric Calculation**: Computes three critical RAG metrics:
+    * **Faithfulness**: Measures how well the response is grounded in the retrieved context.
+    * **Answer Relevancy**: meaningfulness of the response to the user's query.
+    * **Context Precision**: Evaluates the signal-to-noise ratio in the retrieved context.
+* **Dual Evaluation Modes**:
+    * **Basic Mode**: Fast computation using token overlap and cosine similarity.
+    * **Advanced Mode**: High-precision evaluation using NLI (Natural Language Inference) models and Cross-Encoders.
+* **Data Visualization**: Generates histograms and distribution plots for all metrics using `Seaborn` and `Matplotlib`.
+* **JSON Reporting**: Exports detailed per-interaction scores to `ragas_scores.json`.
+
+## 📊 Metrics Explained
+
+### 1. Faithfulness
+Determines if the answer is factually consistent with the provided context.
+* *Basic*: Token overlap ratio between context and response.
+* *Advanced*: Uses an NLI model (`roberta-large-mnli`) to check textual entailment.
+
+### 2. Answer Relevancy
+Assesses how pertinent the response is to the given prompt.
+* *Basic*: Cosine similarity between the query embedding and response embedding.
+* *Advanced*: Uses a Cross-Encoder (`stsb-roberta-large`) to predict a semantic similarity score.
+
+### 3. Context Precision
+Evaluates whether the retrieved context contains the necessary information to answer the prompt.
+* *Basic*: Sentence-level overlap analysis.
+* *Advanced*: Semantic similarity check between context sentences and response clauses.
+
+
 
 ## 📥 Installation
 
